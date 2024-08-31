@@ -61,7 +61,7 @@ exports.addNote=async(req,res)=>{
 
         // Extract components
         const year = now.getFullYear();
-        const month =monthNames[now.getMonth() + 1]; // getMonth() is zero-based
+        const month =monthNames[now.getMonth()]; // getMonth() is zero-based
         const date = now.getDate();
 
         let hours = now.getHours();
@@ -140,7 +140,8 @@ exports.updateNote=async(req,res)=>{
 
         // Extract components
         const year = now.getFullYear();
-        const month =monthNames[now.getMonth() + 1]; // getMonth() is zero-based
+        const month =monthNames[now.getMonth()]; // getMonth() is zero-based
+        // console.log("month number ",now.getMonth())
         const date = now.getDate();
 
         let hours = now.getHours();
@@ -156,6 +157,9 @@ exports.updateNote=async(req,res)=>{
         const time=hours+":"+minutes+" "+ampm;
         const day=date+" "+month+" , "+year;
 
+        // console.log("TIME :- ",time)
+        // console.log("DAY :- ", day)
+
         const updatedOne={
             title:title,
             body:content,
@@ -164,10 +168,12 @@ exports.updateNote=async(req,res)=>{
         }
 
         await userschema.findOneAndUpdate({'notes.title':title},{$set:{'notes.$':updatedOne}},{new:true});
+       
 
         return res.json({
             success:true,
-            message:"Note updated successfully"
+            message:"Note updated successfully",
+            updatedOne
         })
 
     }

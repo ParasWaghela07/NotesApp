@@ -17,12 +17,12 @@ function Signup() {
 
   
   function nameHandler(e){
-    console.log(name);
+    // console.log(name);
     setname(e.target.value);
 }
 
 function emailHandler(e){
-    console.log(email);
+    // console.log(email);
     setemail(e.target.value);
 }
 
@@ -35,7 +35,7 @@ function emailHandler(e){
 
   async function submitHandler() {
     try {
-        console.log("Tapped");
+        // console.log("Tapped");
         const response = await fetch('http://localhost:4000/signup', {
             method: 'POST',
             headers: {

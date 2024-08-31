@@ -19,7 +19,7 @@ function AddNote() {
 
 
     async function handleSave(){
-        console.log("Tapped")
+        
         try{
             const response=await fetch('http://localhost:4000/addNote',{
                 method:'POST',

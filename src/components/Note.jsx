@@ -5,7 +5,7 @@ import {AppContext} from "../context/AppContext"
 function Note({note}){
     const {setTitle,setContent,setTime,setDay}=useContext(AppContext);
     const navigate=useNavigate();
-    console.log(note.title , note.title.length)
+    // console.log(note.title , note.title.length)
     function show(){
         setTitle(note.title);
         setContent(note.body);
